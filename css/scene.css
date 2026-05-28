@@ -1,0 +1,63 @@
+/* Pixel art battle scene */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --px-bg: #1a1c2c;
+    --px-panel: #29366f;
+    --px-panel-border: #566c86;
+    --px-accent: #b13e53;
+    --px-text: #f4f4f4;
+    --px-muted: #94b0b2;
+    --px-hp: #38b764;
+    --px-mp: #41a6f6;
+    --px-hp-bg: #1a1c2c;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+}
+
+#parallax-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background-color: var(--px-bg);
+}
+
+.parallax-layer {
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+}
+
+.parallax-layer--foreground {
+    background-image: url('../assets/images/parallax/foreground.svg');
+}
+
+.parallax-scanlines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0, 0.08) 2px,
+        rgba(0,0,0, 0.08) 4px
+    )
+}
+
+.parallax-vintage {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0, 0.5) 100%);
+}

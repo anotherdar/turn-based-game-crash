@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Quest</title>
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/hero.svg">
+    <!-- css -->
+    <link rel="stylesheet" href="css/scene.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/scene.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        arena: { DEFAULT: '#1a1a2e', light: '#16213e', accent: '#e94560' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen text-slate-100">
+    <!-- root container -->
+    <div id="parallax-scene" aria-hidden="true">
+        <div class="parallax-layer parallax-layer--sky"></div>
+        <div class="parallax-layer parallax-layer--mountains"></div>
+        <div class="parallax-layer parallax-layer--foreground"></div>
+        <div class="parallax-vintage"></div>
+        <div class="parallax-scanlines"></div>
+    </div>
+
+    <!--  -->
+    <div id="game-root">
+        <h1 class="text-red-500 mt-2">Battle Quest</h1>
+    </div>
+
+</body>
+
+</html>
