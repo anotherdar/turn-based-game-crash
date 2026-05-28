@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <rect width="32" height="32" fill="none"/>
+  <rect x="9" y="29" width="14" height="2" fill="#1a1c2c" opacity="0.5"/>
+  <!-- legs -->
+  <rect x="11" y="23" width="4" height="6" fill="#266218"/>
+  <rect x="17" y="23" width="4" height="6" fill="#266218"/>
+  <!-- body -->
+  <rect x="10" y="14" width="12" height="10" fill="#38b764"/>
+  <rect x="11" y="15" width="10" height="6" fill="#57d957"/>
+  <!-- ears -->
+  <rect x="8" y="8" width="3" height="5" fill="#38b764"/>
+  <rect x="21" y="8" width="3" height="5" fill="#38b764"/>
+  <!-- head -->
+  <rect x="10" y="7" width="12" height="9" fill="#57d957"/>
+  <!-- eyes -->
+  <rect x="12" y="10" width="3" height="3" fill="#f4f4f4"/>
+  <rect x="17" y="10" width="3" height="3" fill="#f4f4f4"/>
+  <rect x="13" y="11" width="1" height="1" fill="#1a1c2c"/>
+  <rect x="18" y="11" width="1" height="1" fill="#1a1c2c"/>
+  <!-- mouth -->
+  <rect x="13" y="14" width="6" height="1" fill="#266218"/>
+  <!-- club -->
+  <rect x="23" y="12" width="2" height="12" fill="#824018"/>
+  <rect x="21" y="10" width="6" height="4" fill="#5d4037"/>
+</svg>
