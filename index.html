@@ -24,7 +24,7 @@
     </script>
 </head>
 
-<body class="min-h-screen text-slate-100">
+<body class="min-h-screen text-slate-100 p-4">
     <!-- root container -->
     <div id="parallax-scene" aria-hidden="true">
         <div class="parallax-layer parallax-layer--sky"></div>
@@ -34,11 +34,66 @@
         <div class="parallax-scanlines"></div>
     </div>
 
-    <!--  -->
-    <div id="game-root">
-        <h1 class="text-red-500 mt-2">Battle Quest</h1>
-    </div>
+    
+    <div id="game-root" class="border border-white p-4 max-w-3xl mx-auto relative space-y-4">
+        <!-- header -->
+         <header class="text-center py-4 game-panel flex flex-col gap-2">
+            <!-- sound button -->
+            <div class="flex justify-end px-2">
+                <button id="mute-btn" class="text-slate-400 hover:text-white flex items-center gap-2">SND</button>
+            </div>
+            <p id="wave-indicator" class="text-slate-400 uppercase">Battle 1 / 3</p>
+            <h1 class="text-white">Battle Quest</h1>
+            <p id="turn-indicator" class="text-yellow-500">Your turn</p>
+         </header>
+         <!-- main content -->
+          <main class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- hero section -->
+            <section class="game-panel p-4 flex flex-col gap-2">
+                <!-- img + name + hp -->
+                <div class="flex items-center gap-3">
+                    <img id="hero-sprite" src="assets/images/hero.svg" alt="hero" class="character-sprite character-sprite--hero">
+                    <div class="flex flex-col gap-2">
+                        <h2 id="hero-name" class="text-white">Hero</h2>
+                        <p id="hero-hp-text" class="text-slate-400">HP: 100 / 100</p>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="pixel-bar">
+                    <div id="hero-hp-bar" class="pixel-bar__fill pixel-bar__fill--hp" style="width: 100%"></div>
+                </div>
 
+                <!-- MP -->
+                 <div class="flex flex-col gap-2">
+                    <p id="hero-mana-text" class="text-slate-400">MP: 50 / 50</p>
+                    <div class="pixel-bar pixel-bar--sm">
+                        <div id="hero-mana-bar" class="pixel-bar__fill pixel-bar__fill--mp" style="width: 100%"></div>
+                    </div>
+                 </div>
+
+                 <!-- status effects -->
+                  <div id="hero-status">
+            </section>
+            <!-- enemy section -->
+            <section class="game-panel p-4 flex flex-col gap-2">
+                <!-- img + name + hp -->
+                <div class="flex items-center gap-3">
+                    <img id="enemy-sprite" src="assets/images/enemies/goblin.svg" alt="hero" class="character-sprite character-sprite--hero">
+                    <div class="flex flex-col gap-2">
+                        <h2 id="enemy-name" class="text-white">Goblin</h2>
+                        <p id="enemy-hp-text" class="text-slate-400">HP: 60 / 60</p>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="pixel-bar">
+                    <div id="enemy-hp-bar" class="pixel-bar__fill pixel-bar__fill--enemy-hp" style="width: 100%"></div>
+                </div>
+
+                <!-- status effects -->
+                 <div id="enemy-status"></div>
+            </section>
+          </main>
+    </div>
 </body>
 
 </html>

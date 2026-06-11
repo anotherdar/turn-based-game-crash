@@ -10,8 +10,10 @@
     --px-text: #f4f4f4;
     --px-muted: #94b0b2;
     --px-hp: #38b764;
+    --px-enemy-hp: #b13e53;
     --px-mp: #41a6f6;
     --px-hp-bg: #1a1c2c;
+    --px-text-shadow: 2px 2px 0 #1a1c2c;
 }
 
 body {
@@ -46,18 +48,88 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0, 0.08) 2px,
-        rgba(0,0,0, 0.08) 4px
-    )
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.08) 2px,
+            rgba(0, 0, 0, 0.08) 4px)
 }
 
 .parallax-vintage {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0, 0.5) 100%);
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.game-panel {
+    background-color: var(--px-panel);
+    border: 4px solid var(--px-panel-border);
+    box-shadow:
+        inset -4px -4px 0px rgba(0, 0, 0, 0.35),
+        inset 4px 4px 0px rgba(255, 255, 255, 0.08),
+        4px 4px 0px rgba(0, 0, 0, 0.35);
+}
+
+#game-root h1 {
+    font-size: 1.1rem;
+    text-shadow: var(--px-text-shadow);
+}
+
+#game-root h2 {
+    font-size: 0.65rem;
+    line-height: 1.8;
+}
+
+#game-root h3 {
+    font-size: 0.55rem;
+    line-height: 1.8;
+}
+
+#game-root p,
+#game-root li,
+#game-root button,
+#game-root span {
+    font-size: 0.5rem;
+    line-height: 1.8;
+}
+
+.character-sprite {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(2px 2px 0 #1a1c2c);
+    transition: none;
+}
+
+.character-sprite--hero {
+    transform: scaleX(-1);
+}
+
+.pixel-bar {
+    border: 3px solid #1a1c2c;
+    background: var(--px-hp-bg);
+    height: 14px;
+    box-shadow: inset 2px 2px 0 rgba(0,0,0, 0.5);
+}
+
+.pixel-bar--sm {
+    height: 10px;
+}
+
+.pixel-bar__fill {
+    height: 100%;
+    transition: width 0.2s steps(10);
+    box-shadow: inset 0px -2px 0 rgba(0,0,0, 0.25);
+}
+
+.pixel-bar__fill--hp {
+    background-color: var(--px-hp);
+}
+.pixel-bar__fill--enemy-hp {
+    background-color: var(--px-enemy-hp);
+}
+.pixel-bar__fill--mp {
+    background-color: var(--px-mp);
 }
