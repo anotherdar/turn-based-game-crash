@@ -10,7 +10,6 @@
     <!-- css -->
     <link rel="stylesheet" href="css/scene.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/scene.css" />
     <script>
         tailwind.config = {
             theme: {
@@ -24,7 +23,7 @@
     </script>
 </head>
 
-<body class="min-h-screen text-slate-100 p-4">
+<body class="min-h-screen text-slate-100 p-4 bg-white">
     <!-- root container -->
     <div id="parallax-scene" aria-hidden="true">
         <div class="parallax-layer parallax-layer--sky"></div>
@@ -34,10 +33,10 @@
         <div class="parallax-scanlines"></div>
     </div>
 
-    
-    <div id="game-root" class="border border-white p-4 max-w-3xl mx-auto relative space-y-4">
+
+    <div id="game-root" class="p-4 max-w-3xl mx-auto relative space-y-4">
         <!-- header -->
-         <header class="text-center py-4 game-panel flex flex-col gap-2">
+        <header class="text-center py-4 game-panel flex flex-col gap-2">
             <!-- sound button -->
             <div class="flex justify-end px-2">
                 <button id="mute-btn" class="text-slate-400 hover:text-white flex items-center gap-2">SND</button>
@@ -45,14 +44,15 @@
             <p id="wave-indicator" class="text-slate-400 uppercase">Battle 1 / 3</p>
             <h1 class="text-white">Battle Quest</h1>
             <p id="turn-indicator" class="text-yellow-500">Your turn</p>
-         </header>
-         <!-- main content -->
-          <main class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        </header>
+        <!-- main content -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- hero section -->
             <section class="game-panel p-4 flex flex-col gap-2">
                 <!-- img + name + hp -->
                 <div class="flex items-center gap-3">
-                    <img id="hero-sprite" src="assets/images/hero.svg" alt="hero" class="character-sprite character-sprite--hero">
+                    <img id="hero-sprite" src="assets/images/hero.svg" alt="hero"
+                        class="character-sprite character-sprite--hero">
                     <div class="flex flex-col gap-2">
                         <h2 id="hero-name" class="text-white">Hero</h2>
                         <p id="hero-hp-text" class="text-slate-400">HP: 100 / 100</p>
@@ -64,21 +64,22 @@
                 </div>
 
                 <!-- MP -->
-                 <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2">
                     <p id="hero-mana-text" class="text-slate-400">MP: 50 / 50</p>
                     <div class="pixel-bar pixel-bar--sm">
                         <div id="hero-mana-bar" class="pixel-bar__fill pixel-bar__fill--mp" style="width: 100%"></div>
                     </div>
-                 </div>
+                </div>
 
-                 <!-- status effects -->
-                  <div id="hero-status">
+                <!-- status effects -->
+                <div id="hero-status">
             </section>
             <!-- enemy section -->
             <section class="game-panel p-4 flex flex-col gap-2">
                 <!-- img + name + hp -->
                 <div class="flex items-center gap-3">
-                    <img id="enemy-sprite" src="assets/images/enemies/goblin.svg" alt="hero" class="character-sprite character-sprite--hero">
+                    <img id="enemy-sprite" src="assets/images/enemies/goblin.svg" alt="hero"
+                        class="character-sprite character-sprite--hero">
                     <div class="flex flex-col gap-2">
                         <h2 id="enemy-name" class="text-white">Goblin</h2>
                         <p id="enemy-hp-text" class="text-slate-400">HP: 60 / 60</p>
@@ -90,10 +91,45 @@
                 </div>
 
                 <!-- status effects -->
-                 <div id="enemy-status"></div>
+                <div id="enemy-status"></div>
             </section>
-          </main>
+        </main>
+        <!-- actions -->
+        <section id="actions" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
+            <button data-action="attack" class="action-btn pixel-btn py-3 bg-arena-accent">ATK</button>
+            <button data-action="defend" class="action-btn pixel-btn py-3 bg-slate-600">DEF</button>
+            <button data-action="skill-1" class="action-btn pixel-btn py-3 bg-purple-600">PWR</button>
+            <button data-action="skill-2" class="action-btn pixel-btn py-3 bg-green-600">PSN</button>
+        </section>
+        <!-- spells -->
+        <section id="spells" class="game-panel p-4">
+            <h3 class="text-cyan-300 mb-2">SPELLS</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button data-action="spell-heal" data-mana-cost="15" class="spell-btn pixel-btn py-3 bg-slate-600">Heal
+                    15</button>
+                <button data-action="speel-buff" data-mana-cost="12" class="spell-btn pixel-btn py-3 bg-purple-600">Buff
+                    12</button>
+                <button data-action="spell-debuff" data-mana-cost="10"
+                    class="spell-btn pixel-btn py-3 bg-green-600">Debuff 10</button>
+            </div>
+        </section>
+        <!-- log -->
+         <section class="game-panel p-4">
+            <h3 class="text-slate-400 mb-2">LOG</h3>
+            <ul id="battle-log" class="space-y-1 max-h-40 overflow-y-auto"></ul>
+         </section>
+         <!-- overlay -->
+        <div id="overlay" class="absolute inset-0 bg-black/80 flex items-center justify-center hidden">
+            <div class="game-panel p-8 text-center space-y-4 max-w-sm">
+                <h2 id="overlay-title" class="text-white">Victory!</h2>
+                <p id="overlay-message" class="text-slate-400"></p>
+                <button id="overlay-btn" class="pixel-btn py-3 px-3 text-white bg-arena-accent">Continue</button>
+            </div>
+        </div>
     </div>
+
+    <!-- js -->
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

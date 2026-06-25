@@ -14,6 +14,7 @@
     --px-mp: #41a6f6;
     --px-hp-bg: #1a1c2c;
     --px-text-shadow: 2px 2px 0 #1a1c2c;
+    --px-btn-border: #1a1c2c;
 }
 
 body {
@@ -112,6 +113,8 @@ body {
     background: var(--px-hp-bg);
     height: 14px;
     box-shadow: inset 2px 2px 0 rgba(0,0,0, 0.5);
+
+    color: #eee;
 }
 
 .pixel-bar--sm {
@@ -132,4 +135,32 @@ body {
 }
 .pixel-bar__fill--mp {
     background-color: var(--px-mp);
+}
+
+/* Actions */
+.pixel-btn {
+    border: 3px solid var(--px-btn-border);
+    box-shadow:
+        inset -3px -3px 0px rgba(0, 0, 0, 0.35),
+        inset 3px 3px 0px rgba(255, 255, 255, 0.12),
+        3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pixel-btn:hover:not(:disabled) {
+  filter: brightness(1.15);
+  transform: translate(1px, 1px);
+  box-shadow:
+    inset -3px -3px 0 rgba(0, 0, 0, 0.35),
+    inset 3px 3px 0 rgba(255, 255, 255, 0.12),
+    2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
